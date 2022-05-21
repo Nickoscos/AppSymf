@@ -1,0 +1,14 @@
+.error-perso {
+    color: #e04447;
+    font-size: 20px;
+}
+
+.bg-company-red {
+  background-color: darkred;
+}
+
+  /* .bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  } */
+  

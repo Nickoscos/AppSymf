@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <article class="container-fluid">
+        <div class="row align-items-center col-md-4">
+            <div class="col s4 m4">
+                <h2>{{ article.title }}</h2>
+                <span>{{ article.publicationDate|date('d/m/Y') }}</span>
+                <p>
+                    <img style="width:200px;height:200px;" src="{{ asset('uploads/' ~ article.picture) }}" class="responsive-img">
+                </p>
+                <span class="categories">{% for category in article.categories %} {{ category.label }}{{ loop.last ? ' ' : '. ' }} {% endfor %}</span>
+            </div>
+            <div class="col s4 m4">
+                <h2>Contenu</h2>
+                <p>
+                    {{ article.content }}
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center col-md-4">
+            <div class="col-sm-2">
+                <a href="{{ path('index') }}">
+                    <button class="btn btn-outline-primary" type="button">
+                        <i class="fa-solid fa-house"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="col-sm-2">
+                <a href="{{ path('edit', {id: article.id}) }}">
+                    <button class="btn btn-outline-warning" type="button">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="col-sm-2">
+                <a href="{{ path('delete', {articleId: article.id}) }}">
+                    <button class="btn btn-outline-danger" type="button">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+        
+    </article>
+{% endblock %}

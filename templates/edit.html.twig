@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ parent() }} | Modifier un article{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h4>Modifier l'article {{ article.title }}</h4>
+            {% if article.picture is not null %}
+                <img style="width:200px;height:200px;" src="{{ asset('uploads/' ~ article.picture) }}">
+            {% endif %}
+        </div>
+        {% include "includes/article_form.html.twig" %}
+    </div>
+{% endblock %}
